@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   resources :surveys do
     resources :questions
   end
-  #resources :registration
-  #resources :sessions
+  resources :registrations
+  resources :sessions
   #resources :options
   #root 'surveys#index'
-  root 'surveys#index'
+  root 'registrations#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
