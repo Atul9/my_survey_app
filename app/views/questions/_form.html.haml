@@ -1,0 +1,6 @@
+= form_for [@survey, @question] do |f|
+  = f.text_field :description
+  =f.fields_for :options do |o|
+    = o.text_field :description
+  .action
+    = f.submit

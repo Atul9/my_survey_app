@@ -1,0 +1,14 @@
+%table{border: 2}
+  %th Id
+  %th description
+  - @question.each do |f|
+    %tr
+      %td= f.id
+      %td= f.description
+      %td= link_to "Show", survey_question_path(@survey, f)
+      %td= link_to "Edit", edit_survey_question_path(@survey, f)
+
+
+
+= link_to "Create Question", new_survey_question_path(@survey)
+= link_to "Home", surveys_path

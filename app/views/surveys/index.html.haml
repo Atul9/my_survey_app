@@ -1,0 +1,18 @@
+= flash[:notice]
+%table{border: 2}
+  %th Id
+  %th Name
+  %th Survey_type
+  %th Conducted_on
+  %th
+    People_count
+  - @survey.each do |f|
+    %tr
+      %td= f.id
+      %td= f.name
+      %td= f.survey_type
+      %td= f.conducted_on
+      %td= f.count_people
+      %td= link_to "Show", survey_path(f)
+= link_to "New Survey", new_survey_path
+

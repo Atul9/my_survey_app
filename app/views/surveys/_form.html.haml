@@ -1,0 +1,9 @@
+=form_for(@survey) do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.text_field :survey_type
+  = f.date_field :conducted_on
+  = f.text_field :count_people
+
+  .action
+  = f.submit
