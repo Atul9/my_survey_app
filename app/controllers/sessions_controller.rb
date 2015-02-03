@@ -5,11 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(params[:email])
-    puts params
-    puts @user.email
     if @user && @user.authenticate(params[:user][:password])
       flash[:notice] = "Welcome #{@user.name}"
-      session[:user_id] = @user.id
+        log_in @user
       redirect_to surveys_path
     else
       flash[:notice] = 'Login unsuccessful'
@@ -18,6 +16,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    log_out if logged_in?
+    redirect_to login_path
+  end
+  private
   def user_params
     params.require(:user).permit(:email,:password)
   end

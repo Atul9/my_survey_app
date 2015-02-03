@@ -1,8 +1,13 @@
-
-= form_for (@user), url:{action: "create"} do |f|
-    = f.label :email
-    = f.text_field :email
-    = f.label :password
-    = f.password_field :password
-    .action
-    = f.submit
+= flash[:notice]
+%table{border: 2}
+  %tr
+    = form_for (@user), url:{action: "create"} do |f|
+      %td= f.label :email
+      %td= f.text_field :email
+      %br
+      %tr
+        %td= f.label :password
+        %td= f.password_field :password
+      %tr
+        .action
+        %td= f.submit "Login"

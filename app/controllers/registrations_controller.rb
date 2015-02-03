@@ -15,6 +15,7 @@ class RegistrationsController < ApplicationController
       render 'index'
     else
       puts @user.errors.messages
+      flash[:notice] = @user.errors.full_messages
       render 'new'
     end
   end

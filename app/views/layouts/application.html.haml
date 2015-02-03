@@ -1,0 +1,12 @@
+%html
+  %head
+    %title SurveyApp
+    =stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    =javascript_include_tag 'application', 'data-turbolinks-track' => true
+    =csrf_meta_tags
+  %body
+  - if logged_in?
+    =link_to "logout", logout_path, method: :delete
+  - else
+    = link_to "login", login_path
+  =yield
